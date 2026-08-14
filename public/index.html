@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>bot — BRL / USDT / stablecoins</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23ff5c1a'/><path d='M28 68 L50 28 L72 68' stroke='%230a0a0b' stroke-width='11' fill='none' stroke-linejoin='round'/></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="shell">
+
+  <!-- ═══ Sidebar ═══════════════════════════════════════════════════ -->
+  <nav class="sidebar">
+    <div class="logo">
+      <span class="logo-mark"></span>
+      <span class="logo-text">bot</span>
+    </div>
+
+    <ul class="nav">
+      <li><button class="nav-item active" data-view="oportunidades"><i data-ico="bolt"></i>Oportunidades</button></li>
+      <li><button class="nav-item" data-view="malha"><i data-ico="route"></i>Malha</button></li>
+      <li class="nav-group">rotas</li>
+      <li id="nav-routes"></li>
+      <li class="nav-group">operação</li>
+      <li><button class="nav-item" data-view="historico"><i data-ico="clock"></i>Histórico</button></li>
+      <li><button class="nav-item" data-view="config"><i data-ico="gear"></i>Configurações</button></li>
+    </ul>
+
+    <div class="sidebar-foot">
+      <div class="conn"><span id="conn-dot" class="dot"></span><span id="conn-text">conectando</span></div>
+      <div id="mode-tag" class="mode-tag">—</div>
+    </div>
+  </nav>
+
+  <!-- ═══ Conteúdo ══════════════════════════════════════════════════ -->
+  <main class="content">
+
+    <!-- ─── Barra de saldos ──────────────────────────────────────── -->
+    <div id="wallet-bar" class="wallet-bar"></div>
+
+    <header class="topbar">
+      <div class="topbar-title">
+        <span id="head-count" class="head-count">00</span>
+        <h1 id="head-title">oportunidades</h1>
+        <span id="head-sub" class="head-sub"></span>
+      </div>
+      <div class="topbar-tools">
+        <label class="tool">
+          <span>simular (R$)</span>
+          <input id="sim-amount" type="number" min="1" step="100" />
+        </label>
+        <div id="head-meta" class="tool-static">—</div>
+      </div>
+    </header>
+
+    <div id="banner-stuck" class="banner hidden">
+      <div>
+        <strong>Ciclo interrompido com fundos em trânsito.</strong>
+        <p>Confira o saldo na Binance e na carteira antes de continuar. O modo automático está bloqueado.</p>
+      </div>
+      <button id="btn-ack" class="btn btn-warn">Revisei, liberar</button>
+    </div>
+
+    <!-- ─── Oportunidades ────────────────────────────────────────── -->
+    <section class="view" data-view="oportunidades">
+      <div id="opp-grid" class="opp-grid"></div>
+      <div id="live-cycle" class="live-cycle hidden"></div>
+    </section>
+
+    <!-- ─── Malha (renderizada por JS) ───────────────────────────── -->
+    <section class="view hidden" data-view="malha">
+      <div id="mesh"></div>
+    </section>
+
+    <!-- ─── Detalhe de rota (renderizado por JS) ─────────────────── -->
+    <section class="view hidden" data-view="rota">
+      <div id="route-detail"></div>
+    </section>
+
+    <!-- ─── Histórico ────────────────────────────────────────────── -->
+    <section class="view hidden" data-view="historico">
+      <div class="panel">
+        <div class="panel-head"><h2>ciclos executados</h2></div>
+        <div id="history-table"></div>
+      </div>
+    </section>
+
+    <!-- ─── Configurações ────────────────────────────────────────── -->
+    <section class="view hidden" data-view="config">
+      <div class="cfg-grid">
+        <div class="panel">
+          <div class="panel-head"><h2>carteira &amp; saldos</h2></div>
+          <div class="stat-list" id="cfg-balances"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h2>endereços</h2></div>
+          <div id="cfg-addresses"></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><h2>log</h2></div>
+        <div id="logs" class="logs"></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

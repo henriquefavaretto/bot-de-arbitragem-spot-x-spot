@@ -1,0 +1,24 @@
+{
+  "name": "bot-picnic",
+  "version": "1.0.0",
+  "description": "Bot de arbitragem BRL -> USDT (Binance) -> BRLA (KyberSwap/Polygon) -> Picnic",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "tsx watch src/server.ts",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "ccxt": "^4.5.71",
+    "dotenv": "^16.4.7",
+    "ethers": "^6.13.5",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.10.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}

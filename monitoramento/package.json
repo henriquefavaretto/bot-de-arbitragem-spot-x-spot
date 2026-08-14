@@ -1,0 +1,23 @@
+{
+  "name": "monitoramento-spreads",
+  "version": "1.0.0",
+  "description": "Monitor contínuo de spreads USDT/BRL entre CEXs e DEXs (BRLA/BRZ na Polygon)",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/main.ts",
+    "probe": "tsx src/probe.ts",
+    "report": "tsx src/report.ts",
+    "chains": "tsx src/chains.ts",
+    "check": "tsc --noEmit",
+    "rotas": "tsx src/rotas.ts"
+  },
+  "dependencies": {
+    "ccxt": "^4.5.71",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}
